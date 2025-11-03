@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Theme } from "@radix-ui/themes";
-import "@radix-ui/themes/styles.css";
 import { Header } from "@/components/shared";
+import Link from "next/link";
 
 
 const geistSans = Geist({
@@ -29,13 +28,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-lg`}>
+        <div className="fixed bottom-0 right-0 z-50 flex gap-4">
+          <Link href='/'><p>главная</p></Link>
+          <Link href='/profile'><p>профиль</p></Link>
+          <Link href='/admin'><p>admin</p></Link>
+          <Link href='/auth'><p>auth</p></Link>
+        </div>
 
-        <Theme>
+        <main className="min-h-[100vh] flex flex-col bg-gray-100 text-black">
           <Header />
-          <main className="min-h-[100vh] flex bg-gray-100">
-            {children}
-          </main>
-        </Theme>
+          {children}
+        </main>
 
       </body>
     </html>

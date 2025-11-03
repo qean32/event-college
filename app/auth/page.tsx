@@ -1,7 +1,9 @@
 'use client'
 
+import { CustomButton, Title } from '@/components/ui';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { cn } from '@/lib'
-import { Button, TextField } from '@radix-ui/themes';
 import React from 'react';
 
 
@@ -13,13 +15,11 @@ export default function Page({ className }: Props) {
 
     return (
         <div className={cn('flex-1 flex justify-center items-center', className)}>
-            <div className="flex flex-col gap-3 -translate-y-1/2 bg-gray-200 py-5 px-5 rounded-lg w-[350px]">
-                <p className='text-xl'>Авторизация</p>
-                <TextField.Root placeholder="Login" className='w-full' size='3' />
-                <TextField.Root placeholder="Password" className='w-full' size='3' />
-                <div className='w-full pt-2'>
-                    <Button asChild size='3' className='cursor-pointer'><p>Авторизация</p></Button>
-                </div>
+            <div className="flex flex-col gap-3 bg-white -translate-y-1/2 py-7 px-5 rounded-lg items-center border border-gray-100">
+                <Title>Авторизация</Title>
+                <Input placeholder='Логин' className='w-[350px] h-[40px]' />
+                <Input placeholder='Пароль' className='w-[350px] h-[40px]' type='password' />
+                <CustomButton><p>Войти</p></CustomButton>
             </div>
         </div>
     );

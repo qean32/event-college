@@ -2,22 +2,25 @@
 
 import Link from 'next/link';
 import React from 'react';
-import { HeaderUser } from '../ui';
+import { CustomAvatar, Title } from '../ui';
+import { usePathname } from 'next/navigation'
 
 
 interface Props {
 }
 
 export const Header: React.FC<Props> = ({ }: Props) => {
+    const pathname = usePathname()
+    console.log(pathname)
 
     return (
-        <header className="flex justify-around bg-gray-100 items-center py-2">
+        <header className="flex justify-around items-center py-2">
             <h2 className="font-bold text-xl">LOGO</h2>
             <div className="flex gap-4">
-                <Link href={''}><p className='font-bold text-lg text-blue-600'>Основная таблица</p></Link>
-                <Link href={''}><p className='font-bold text-lg'>Основные мероприятия</p></Link>
+                <Link href={'/'}><Title size='text-xl' color={!(pathname == '/') ? 'text-black' : 'text-blue-600'}>Основная таблица</Title></Link>
+                <Link href={'/grade'}><Title size='text-xl' color={!(pathname == '/grade') ? 'text-black' : 'text-blue-600'}>Оценка мероприятий</Title></Link>
             </div>
-            <HeaderUser />
+            <CustomAvatar />
         </header>
     );
 }

@@ -1,0 +1,1 @@
+export type { eventDto } from './event.dto'
