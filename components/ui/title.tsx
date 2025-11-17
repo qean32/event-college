@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib'
+import { cn } from "@/lib/utils"
 import React from 'react';
 
 
@@ -15,6 +15,6 @@ interface Props {
 export const Title: React.FC<Props> = ({ className, children, size = 'text-xl', props, color = 'text-blue-600' }: Props) => {
 
     return (
-        <p {...props} className={cn('font-bold', className, size, color)}>{children}</p>
+        <p {...props} className={cn('font-bold cursor-pointer', className, size, color)}>{children}</p>
     );
 }

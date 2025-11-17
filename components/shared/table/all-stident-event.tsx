@@ -1,7 +1,7 @@
 'use client'
 
 import { fakeAllEvent, fakeAllEventColumn } from '@/export'
-import { cn } from '@/lib'
+import { cn } from "@/lib/utils"
 import {
     flexRender,
     getCoreRowModel,
@@ -29,14 +29,14 @@ export function AllStudentEventTable() {
 
 
     return (
-        <div className="p-2 overflow-scroll min-w-full max-h-[100vh]">
+        <div className="p-2 overflow-x-scroll min-w-full max-h-[100vh] table-">
             <table>
                 <thead className='h-[50px]'>
                     {table.getHeaderGroups().map(headerGroup => (
                         <tr key={headerGroup.id}>
                             {headerGroup.headers.map(header => {
                                 return (
-                                    <th key={header.id} colSpan={header.colSpan} className='bg-gray-200 text-nowrap overflow-hidden text-sm font-medium max-w-[160px] px-4'>
+                                    <th key={header.id} colSpan={header.colSpan} className='table-column- cursor-pointer bg-gray-300 text-nowrap overflow-hidden text-sm- font-medium w-fit px-4 hover:z-10 hover:w-[400px]'>
                                         {header.isPlaceholder ? null : (
                                             <div
                                                 className={
@@ -59,7 +59,7 @@ export function AllStudentEventTable() {
                                                     asc: <AArrowDown />,
                                                     desc: <AArrowUp />,
                                                 }[header.column.getIsSorted() as string] ?? null}
-                                                <p className='max-w-[90px] text-ellipsis overflow-hidden'>
+                                                <p className='max-w-[90px] text-ellipsis overflow-hidden hover:overflow-visible'>
                                                     {flexRender(
                                                         header.column.columnDef.header,
                                                         header.getContext()
@@ -79,7 +79,7 @@ export function AllStudentEventTable() {
                         .rows
                         .map((row, _) => {
                             return (
-                                <tr key={row.id} className={cn("text-sm font-medium", (!(_ % 2 == 0) ? 'bg-gray-200' : 'bg-gray-100'))}>
+                                <tr key={row.id} className={cn("text-sm- font-medium", (!(_ % 2 == 0) ? 'bg-gray-200' : 'bg-gray-100'))}>
                                     {row.getVisibleCells().map((cell, __) => {
                                         return (
                                             <td key={cell.id} className={cn('py-3 hover:overflow-visible cursor-pointer max-w-[220px] text-nowrap overflow-hidden text-ellipsis pr-4', (__ == 0 ? 'pl-4' : 'text-end pr-5'))}>

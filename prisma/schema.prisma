@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Course {
+    id    Int @id @default(autoincrement())
+    couse Int
+
+    users User[]
+}
+
+model Group {
+    id   Int    @id @default(autoincrement())
+    code String @unique
+
+    createdAt  DateTime @default(now())
+    updateadAt DateTime @updatedAt
+
+    Department     Department? @relation(fields: [DepartmentCode], references: [code])
+    DepartmentCode Int?
+
+    students User[]
+}
+
+model Department {
+    code String @id
+    name String
+
+    groups Group[]
+}
+
+// mb split admin and student
+model User {
+    id Int @id @default(autoincrement())
+
+    first_name    String
+    last_name     String
+    sure_name     String
+    date_of_birth DateTime
+
+    Course   Course? @relation(fields: [CourseId], references: [id])
+    CourseId Int?
+    Group    Group?  @relation(fields: [GroupId], references: [id])
+    GroupId  Int?
+
+    role Role @default(STUDENT)
+    sex  Sex  @default(MALE)
+
+    email    String @unique
+    password String
+
+    createdAt  DateTime @default(now())
+    updateadAt DateTime @updatedAt
+
+    events Event[]
+}
+
+model Event {
+    id        Int      @id @default(autoincrement())
+    name      String
+    date      DateTime
+    createdAt DateTime @default(now())
+    Admin     User?    @relation(fields: [AdminId], references: [id])
+    AdminId   Int?
+}
+
+enum Role {
+    STUDENT
+    ADMIN
+}
+
+enum Sex {
+    MALE
+    FEMALE
+}

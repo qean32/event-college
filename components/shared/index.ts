@@ -1,5 +1,5 @@
 export { Header } from './header'
-export { AddEvent } from './add-event'
+export { default as CustomActiveShapePieChart } from './diagram'
 export { MainUpperPart } from './main-upper-part'
 
 export * as Info from './info'

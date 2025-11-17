@@ -1,7 +1,4 @@
 export { CustomAvatar } from './custom-avatar'
-export { TextBold } from './text-bold'
-export { SelectMounth } from './select-month'
-export { SelectSupervisor } from './select-supervisor'
 export { PersonalAccountTitle } from './personal-account-title'
 export { Title } from './title'
 
@@ -14,4 +11,4 @@ export * as Form from './form'
 export { Input } from './input'
 export * as ToolTip from './tooltip'
 export { Toaster } from './sonner'
-export { DatePicker } from './date-picker'
+export { DatePicker } from '../shared/select/date-picker'

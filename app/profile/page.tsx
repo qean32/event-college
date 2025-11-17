@@ -1,12 +1,11 @@
 'use client'
 
 
-import { eventDto } from '@/@types';
 import { Info } from '@/components/shared';
 import { StudentEventTable } from '@/components/shared/table';
-import { EventColumn, EventItem, PersonalAccountTitle, SelectMounth, TextBold } from '@/components/ui';
-import { fakeEvent } from '@/export';
-import { cn } from '@/lib'
+import { PersonalAccountTitle } from '@/components/ui';
+import { SelectPeriod } from '@/components/shared/select';
+import { cn } from "@/lib/utils"
 import React from 'react';
 
 interface Props {
@@ -22,10 +21,10 @@ export default function Page({ className }: Props) {
             <div className="flex justify-center gap-7">
                 <Info.Student />
                 <div className="flex flex-col px-5 rounded-md w-3/4">
-                    <TextBold title='Мероприятия' />
+                    <p className='text-lg font-medium'>Мероприятия</p>
                     <div className='flex gap-4 py-4'>
-                        <p>Разделы</p>
-                        <SelectMounth />
+                        <p className='font-medium'>Период</p>
+                        <SelectPeriod />
                     </div>
                     <StudentEventTable />
                 </div>

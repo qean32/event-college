@@ -12,7 +12,7 @@ export function GradeEventTable() {
         <>
             <GradeColumn />
             {fakeEvent.map((item, _) => {
-                return <GradeItem event={item} index={_ + 1} value={12} />
+                return <GradeItem key={_} event={item} index={_ + 1} value={12} />
             })}
         </>
     )

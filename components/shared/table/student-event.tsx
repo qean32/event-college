@@ -1,7 +1,7 @@
 'use client'
 
-import { fakeAllEvent, fakeAllEventColumn, fakeEvent, fakeEventColumn } from '@/export'
-import { cn } from '@/lib'
+import { fakeEvent, fakeEventColumn } from '@/export'
+import { cn } from "@/lib/utils"
 import {
     flexRender,
     getCoreRowModel,
@@ -36,7 +36,7 @@ export function StudentEventTable() {
                         <tr key={headerGroup.id}>
                             {headerGroup.headers.map((header, _) => {
                                 return (
-                                    <th key={header.id} colSpan={header.colSpan} className={cn('bg-gray-200 text-sm font-medium max-w-[160px]', (_ == 0 && 'pl-4'))} style={{ borderRight: '0px' }}>
+                                    <th key={header.id} colSpan={header.colSpan} className={cn('table-column- cursor-pointer bg-gray-300 hover:overflow-x-visible text-sm- font-medium max-w-[160px]', (_ == 0 && 'pl-4'))} style={{ borderRight: '0px' }}>
                                         {header.isPlaceholder ? null : (
                                             <div
                                                 className={
@@ -79,7 +79,7 @@ export function StudentEventTable() {
                         .rows
                         .map((row, _) => {
                             return (
-                                <tr key={row.id} className={cn("text-sm font-medium", (!(_ % 2 == 0) ? 'bg-gray-200' : 'bg-gray-100'))}>
+                                <tr key={row.id} className={cn("text-sm- font-medium", (!(_ % 2 == 0) ? 'bg-gray-200' : 'bg-gray-100'))}>
                                     {row.getVisibleCells().map((cell, __) => {
                                         return (
                                             <td key={cell.id} className={cn('py-3', (__ == 0 ? 'pl-4 w-10/12' : 'w-1/12'))} style={{ borderRight: '0px' }}>

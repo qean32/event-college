@@ -2,10 +2,10 @@
 
 
 import { Info } from '@/components/shared';
-import { AddEvent } from '@/components/shared';
+import { AddEvent } from '@/components/shared/modal';
 import { AdminEventTable } from '@/components/shared/table';
-import { PersonalAccountTitle, TextBold } from '@/components/ui';
-import { cn } from '@/lib'
+import { PersonalAccountTitle } from '@/components/ui';
+import { cn } from "@/lib/utils"
 import React from 'react';
 
 interface Props {
@@ -22,7 +22,7 @@ export default function Page({ className }: Props) {
 
                 <div className="flex flex-col px-5 rounded-md w-3/4">
                     <div className='pb-6 flex justify-between'>
-                        <TextBold size='text-lg' title='Мероприятия' />
+                        <p className='text-lg font-medium'>Мероприятия</p>
                         <AddEvent />
                     </div>
                     <AdminEventTable />

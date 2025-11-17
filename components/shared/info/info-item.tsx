@@ -1,8 +1,7 @@
 'use client'
 
-import { cn } from '@/lib'
+import { cn } from "@/lib/utils"
 import React from 'react';
-import { TextBold } from '../../ui';
 
 
 interface Props {

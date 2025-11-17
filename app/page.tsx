@@ -1,9 +1,10 @@
 'use client'
 import { MainUpperPart } from '@/components/shared';
+import { FilterEvent } from '@/components/shared/modal'
 import { AllStudentEventTable } from '@/components/shared/table';
-import { CustomButton, TextBold } from '@/components/ui';
+import { CustomButton } from '@/components/ui';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib'
+import { cn } from "@/lib/utils"
 import React from 'react';
 
 interface Props {
@@ -13,16 +14,16 @@ interface Props {
 export default function Main({ className }: Props) {
 
     return (
-        <div className={cn('flex-1 px-15 pt-25 gap-10 flex flex-col', className)}>
+        <div className={cn('flex-1 gap-15 flex flex-col', className)}>
             <MainUpperPart />
-            <div className='w-full min-h-[400px]'>
+            <div className='w-full min-h-[400px] px-15'>
                 <div className="flex justify-between">
                     <div className="flex gap-5 items-center">
-                        <TextBold title='Выбранный фильтр' size='text-2xl' />
+                        <p className='text-2xl'>Выбранный фильтр</p>
                         <Button className='h-[40px]'><p>Список всех студентов за все время</p></Button>
                     </div>
                     <div className='flex gap-2 pb-10'>
-                        <CustomButton className=''><p>Фильтр</p></CustomButton>
+                        <FilterEvent />
                         <CustomButton className=''><p>Экспорт в Exel</p></CustomButton>
                     </div>
                 </div>

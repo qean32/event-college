@@ -3,6 +3,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.text-sm- {
+  font-size: 16px;
+}
+
+.table-column- {
+  &:hover {
+    & p {
+      max-width: fit-content !important;
+    }
+  }
+}
+
+.table-::-webkit-scrollbar {
+  width: auto !important;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

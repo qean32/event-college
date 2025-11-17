@@ -2,7 +2,7 @@
 
 
 import { GradeEventTable } from '@/components/shared/table';
-import { cn } from '@/lib'
+import { cn } from "@/lib/utils"
 import React from 'react';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 export default function Main({ className }: Props) {
 
     return (
-        <div className={cn('flex-1 px-15 pt-25 gap-10 flex flex-col', className)}>
+        <div className={cn('flex-1 px-15 pt-15', className)}>
             <div className='w-full min-h-[400px]'>
                 <GradeEventTable />
             </div>

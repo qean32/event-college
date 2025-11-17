@@ -1,8 +1,7 @@
 'use client'
 
-import { cn } from '@/lib'
+import { cn } from "@/lib/utils"
 import React from 'react';
-import { TextBold } from '../../ui';
 import { InfoItem } from './info-item';
 
 
@@ -14,7 +13,7 @@ export const Admin: React.FC<Props> = ({ className }: Props) => {
 
     return (
         <div className={cn("flex h-fit flex-col px-5 rounded-md w-1/6", className)}>
-            <TextBold title='Информация об администраторе' className='pb-5' />
+            <p className='pb-5 text-lg font-medium'>Информация об администраторе</p>
             <InfoItem title='ФИО' value='Адрей Евгеньевич Шарапин' />
             <InfoItem title='Отделение' value='Информационные сети' />
             <InfoItem title='Пол' value='муж' />
