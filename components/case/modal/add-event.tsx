@@ -12,7 +12,8 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import { DatePicker, SelectSupervisor, Title } from "../ui"
+import { Title } from "../../ui"
+import { SelectSupervisor, DatePicker } from "@/components/case/select"
 
 export function AddEvent() {
     return (
@@ -24,7 +25,7 @@ export function AddEvent() {
                 <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                         <DialogTitle><Title>Добавление мероприятия</Title></DialogTitle>
-                        <DialogDescription>Выберите дату и организатора, введите название</DialogDescription>
+                        <DialogDescription>Введите название , выберите дату и организатора</DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4">
                         <Input placeholder="Название" className="h-[40px]" />

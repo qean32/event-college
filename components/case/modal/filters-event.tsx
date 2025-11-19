@@ -12,7 +12,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { DatePicker, Title } from "../../ui"
-import { SelectCourse, Select_Group, SelectDepartment } from "@/components/shared/select"
+import { SelectCourse, Select_Group, SelectDepartment } from "@/components/case/select"
 
 export function FilterEvent() {
     return (

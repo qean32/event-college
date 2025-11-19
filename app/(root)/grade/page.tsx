@@ -1,7 +1,7 @@
 'use client'
 
 
-import { GradeEventTable } from '@/components/shared/table';
+import { GradeEventTable } from '@/components/case/table';
 import { cn } from "@/lib/utils"
 import React from 'react';
 

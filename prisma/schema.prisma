@@ -10,78 +10,94 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model Course {
-    id    Int @id @default(autoincrement())
-    couse Int
+  id    Int @id @default(autoincrement())
 
-    users User[]
+  students Student[]
 }
 
+// mb add couse???????? real debatable
 model Group {
-    id   Int    @id @default(autoincrement())
-    code String @unique
+  id       Int       @id @default(autoincrement())
+  code String @unique
 
-    createdAt  DateTime @default(now())
-    updateadAt DateTime @updatedAt
+  createdAt  DateTime @default(now())
+  updateadAt DateTime @updatedAt
 
-    Department     Department? @relation(fields: [DepartmentCode], references: [code])
-    DepartmentCode Int?
+  Department     Department? @relation(fields: [DepartmentCode], references: [code])
+  DepartmentCode String?
 
-    students User[]
+  students Student[]
 }
 
 model Department {
-    code String @id
-    name String
+  id       Int       @id @default(autoincrement())
+  code String @unique
+  name String @unique
 
-    groups Group[]
+  groups Group[]
 }
 
-// mb split admin and student
+// mb delete couse???
+model Student {
+  id Int @id @default(autoincrement())
+
+  User   User? @relation(fields: [UserId], references: [id])
+  UserId Int?
+
+  Course    Course? @relation(fields: [CourseId], references: [id])
+  CourseId  Int?
+  Group     Group?  @relation(fields: [GroupCode], references: [code])
+  GroupCode String?
+}
+
+model Supervisor {
+  id     Int   @id @default(autoincrement())
+  User   User? @relation(fields: [UserId], references: [id])
+  UserId Int?
+
+  events Event[]
+}
+
 model User {
-    id Int @id @default(autoincrement())
+  id Int @id @default(autoincrement())
 
-    first_name    String
-    last_name     String
-    sure_name     String
-    date_of_birth DateTime
+  first_name    String
+  last_name     String
+  sure_name     String
+  date_of_birth DateTime
 
-    Course   Course? @relation(fields: [CourseId], references: [id])
-    CourseId Int?
-    Group    Group?  @relation(fields: [GroupId], references: [id])
-    GroupId  Int?
+  role Role @default(STUDENT)
+  sex  Sex  @default(MALE)
 
-    role Role @default(STUDENT)
-    sex  Sex  @default(MALE)
+  email    String
+  password String
 
-    email    String @unique
-    password String
-
-    createdAt  DateTime @default(now())
-    updateadAt DateTime @updatedAt
-
-    events Event[]
+  createdAt   DateTime     @default(now())
+  updateadAt  DateTime     @updatedAt
+  students    Student[]
+  supervisors Supervisor[]
 }
 
 model Event {
-    id        Int      @id @default(autoincrement())
-    name      String
-    date      DateTime
-    createdAt DateTime @default(now())
-    Admin     User?    @relation(fields: [AdminId], references: [id])
-    AdminId   Int?
+  id           Int         @id @default(autoincrement())
+  name         String
+  date         DateTime
+  createdAt    DateTime    @default(now())
+  Supervisor   Supervisor? @relation(fields: [SupervisorId], references: [id])
+  SupervisorId Int?
 }
 
 enum Role {
-    STUDENT
-    ADMIN
+  STUDENT
+  SUPERVISOR
 }
 
 enum Sex {
-    MALE
-    FEMALE
+  MALE
+  FEMALE
 }

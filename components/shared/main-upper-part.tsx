@@ -3,7 +3,7 @@
 import { fakeGroup, fakeSuperviser } from '@/export';
 import React from 'react';
 import { Title } from '../ui';
-import { CustomActiveShapePieChart } from '@/components/shared';
+import { CustomActiveShapePieChart } from '@/components/ui';
 
 
 interface Props {

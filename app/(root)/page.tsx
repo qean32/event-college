@@ -1,7 +1,7 @@
 'use client'
 import { MainUpperPart } from '@/components/shared';
-import { FilterEvent } from '@/components/shared/modal'
-import { AllStudentEventTable } from '@/components/shared/table';
+import { FilterEvent } from '@/components/case/modal'
+import { AllStudentEventTable } from '@/components/case/table';
 import { CustomButton } from '@/components/ui';
 import { Button } from '@/components/ui/button';
 import { cn } from "@/lib/utils"

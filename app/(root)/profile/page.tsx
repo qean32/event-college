@@ -1,10 +1,10 @@
 'use client'
 
 
-import { Info } from '@/components/shared';
-import { StudentEventTable } from '@/components/shared/table';
+import { Student } from '@/components/case/info';
+import { StudentEventTable } from '@/components/case/table';
 import { PersonalAccountTitle } from '@/components/ui';
-import { SelectPeriod } from '@/components/shared/select';
+import { SelectPeriod } from '@/components/case/select';
 import { cn } from "@/lib/utils"
 import React from 'react';
 
@@ -19,7 +19,7 @@ export default function Page({ className }: Props) {
             <PersonalAccountTitle title='Личная карточка студента' />
 
             <div className="flex justify-center gap-7">
-                <Info.Student />
+                <Student />
                 <div className="flex flex-col px-5 rounded-md w-3/4">
                     <p className='text-lg font-medium'>Мероприятия</p>
                     <div className='flex gap-4 py-4'>
